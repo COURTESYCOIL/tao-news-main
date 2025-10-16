@@ -72,28 +72,26 @@
         /* Animated Title Styles */
         .title-container {
             text-align: center;
-            padding: 40px 20px;
-            overflow: hidden; /* Contains the animation */
+            padding: 40px 20px 20px; /* Reduced bottom padding */
+            overflow: hidden;
         }
         .title-container h1 {
             font-family: 'Fjalla One', sans-serif;
             text-transform: uppercase;
             font-size: 42px;
             margin: 0;
-            line-height: 47px;
+            line-height: 40px; /* Tightened line height for stacked effect */
             letter-spacing: 2px;
         }
         .title-container .title {
-            transform: translateX(-50%) rotate(-10deg);
-            display: block;
-            float: left;
-            left: 50%;
+            /* Updated styles for vertical stacking */
+            transform: rotate(-10deg);
+            display: block; /* Each span takes its own line */
             position: relative;
         }
         .title-container .title span {
             transform: skew(-10deg);
-            display: block;
-            float: left;
+            display: inline-block; /* Changed from float */
             text-shadow: #533d4a 1px 1px, #533d4a 2px 2px, #533d4a 3px 3px, #533d4a 4px 4px, #533d4a 5px 5px, #533d4a 6px 6px;
             min-width: 10px;
             min-height: 10px;
@@ -261,13 +259,11 @@
 
         // Animation Logic
         $(document).ready(function() {
-          // Splits the title into individual letter spans
           $(".title").lettering(); 
           
-          // Run the animation after a short delay
           setTimeout(function() {
             animation();
-          }, 1000);
+          }, 500); // Shortened delay for faster animation
         });
 
         function animation() {
