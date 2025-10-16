@@ -6,8 +6,9 @@
     <title>TAO News - Home</title>
     <!-- Google Fonts Import -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
     <style>
         /* Global Styles */
         *, *:before, *:after {
@@ -68,12 +69,50 @@
             padding: 20px;
         }
 
+        /* Animated Title Styles */
+        .title-container {
+            text-align: center;
+            padding: 40px 20px;
+            overflow: hidden; /* Contains the animation */
+        }
+        .title-container h1 {
+            font-family: 'Fjalla One', sans-serif;
+            text-transform: uppercase;
+            font-size: 42px;
+            margin: 0;
+            line-height: 47px;
+            letter-spacing: 2px;
+        }
+        .title-container .title {
+            transform: translateX(-50%) rotate(-10deg);
+            display: block;
+            float: left;
+            left: 50%;
+            position: relative;
+        }
+        .title-container .title span {
+            transform: skew(-10deg);
+            display: block;
+            float: left;
+            text-shadow: #533d4a 1px 1px, #533d4a 2px 2px, #533d4a 3px 3px, #533d4a 4px 4px, #533d4a 5px 5px, #533d4a 6px 6px;
+            min-width: 10px;
+            min-height: 10px;
+            position: relative;
+        }
+        .title-container .title:nth-child(1) {
+            color: #e55643; /* Red */
+        }
+        .title-container .title:nth-child(2) {
+            color: #2b9f5e; /* Green */
+        }
+
+
         /* Article Card Styles */
         .article-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 40px 20px;
+            padding: 20px;
         }
 
         .article-card {
@@ -116,7 +155,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Prevent image dragging */
             pointer-events: none; 
         }
 
@@ -175,6 +213,13 @@
     </header>
     
     <main>
+        <section class="title-container">
+          <h1>
+            <span class="title">Featured</span>
+            <span class="title">News</span>
+          </h1>
+        </section>
+
         <div class="article-container">
             <div class="article-card">
                 <div class="article-card__thumbnail">
@@ -204,9 +249,41 @@
             </div>
         </div>
     </main>
-
+    
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    
     <script>
+        // Prevent right-click context menu
         document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Animation Logic
+        $(document).ready(function() {
+          // Splits the title into individual letter spans
+          $(".title").lettering(); 
+          
+          // Run the animation after a short delay
+          setTimeout(function() {
+            animation();
+          }, 1000);
+        });
+
+        function animation() {
+          var titleTimeline = gsap.timeline();
+          titleTimeline.staggerFromTo(".title span", 0.5, 
+          {
+            ease: "back.out(1.7)", 
+            opacity: 0, 
+            bottom: -80
+          },
+          {
+            ease: "back.out(1.7)", 
+            opacity: 1, 
+            bottom: 0
+          }, 0.05);
+        }
     </script>
 </body>
 </html>
