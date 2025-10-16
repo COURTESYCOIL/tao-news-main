@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-a">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TAO News</title>
     <style>
         body {
             font-family: sans-serif;
             margin: 0;
+            /* Prevent text selection */
+            user-select: none;
+            -webkit-user-select: none; /* For Safari */
+            -ms-user-select: none; /* For Internet Explorer/Edge */
         }
         header {
             display: flex;
@@ -18,6 +22,8 @@
         }
         .logo img {
             max-height: 50px;
+            /* Prevent image dragging */
+            pointer-events: none;
         }
         nav ul {
             list-style: none;
@@ -51,5 +57,10 @@
         <h1>Welcome to TAO News</h1>
         <p>Your source for the latest news and information.</p>
     </main>
+
+    <script>
+        // Prevent right-click context menu
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
 </body>
 </html>
