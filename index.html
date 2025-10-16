@@ -4,14 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TAO News - Home</title>
+    <!-- Google Fonts Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* Global Styles */
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: sans-serif;
+            /* Article styles */
+            font-family: 'Nunito', sans-serif;
+            line-height: 1.6em;
+            font-size: 14px;
+            background: linear-gradient(to top right, #21D4FD, #B721FF);
+            color: #333;
+            
+            /* Previous styles */
             margin: 0;
             user-select: none;
             -webkit-user-select: none;
             -ms-user-select: none;
         }
+
+        a, a:hover, a:active, a:visited {
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Header & Navigation */
         header {
             display: flex;
             justify-content: space-between;
@@ -37,10 +64,101 @@
             color: #333;
             font-weight: bold;
         }
+        
+        /* Main Content Container */
         main {
             padding: 20px;
-            text-align: center;
         }
+
+        /* Article Card Styles */
+        .article-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .article-card {
+            max-width: 400px;
+            min-height: 425px;
+            background: #fff;
+            box-shadow: 0 0 10px 1px rgba(0, 0, 0, .1);
+            transition: transform .3s ease-out;
+            border-radius: 1em;
+        }
+
+        .article-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 10px rgba(0, 0, 0, .1);
+        }
+
+        .article-card:hover .article-card__excerpt {
+            height: auto; /* Show full text on hover */
+            visibility: visible;
+            padding-bottom: 20px;
+        }
+
+        .article-card:hover .article-card__thumbnail {
+            height: 170px;
+        }
+
+        .article-card:hover .article-card__thumbnail img {
+            transform: scale(1.2);
+        }
+
+        .article-card__thumbnail {
+            overflow: hidden;
+            height: 250px;
+            transition: all .5s ease;
+            border-radius: .9em .9em 0 0;
+        }
+
+        .article-card__thumbnail img {
+            transition: all .5s ease;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-card__content {
+            padding: 20px;
+        }
+
+        .article-card__title {
+            margin: 0 0 10px 0;
+            font-size: 1.4em;
+            line-height: 1.3em;
+        }
+
+        .article-card__meta {
+            color: #777;
+        }
+        
+        .article-card__meta i {
+            margin-right: 5px;
+            display: inline-block;
+            font-size: 15px;
+        }
+
+        .article-card__timestamp {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        .article-card__excerpt {
+            height: 1px; /* Hide text by default */
+            visibility: hidden;
+            overflow: hidden;
+            transition: all .3s ease;
+        }
+        .article-card__excerpt h3 {
+            font-size: 1.1em;
+            margin-top: 1em;
+        }
+        .article-card__excerpt p {
+            margin: 0.5em 0;
+        }
+
     </style>
 </head>
 <body>
@@ -55,9 +173,37 @@
             </ul>
         </nav>
     </header>
+    
     <main>
-        <h1>Welcome to TAO News</h1>
-        <p>Your source for the latest news and information.</p>
+        <div class="article-container">
+            <div class="article-card">
+                <div class="article-card__thumbnail">
+                    <img src="https://aqbpwadxaqjjenwtamfm.supabase.co/storage/v1/object/public/KOOL%20MEGS/842319169dc76516.png" alt="RU Clan Conflict" />
+                </div>
+                
+                <div class="article-card__content">
+                    <h2 class="article-card__title">THE COMPLETE HISTORY OF THE CONFLICT IN THE RU CLAN. THE SECOND CIVIL WAR: NEMALOSS VS CORUMIN</h2>
+                    
+                    <div class="article-card__meta">
+                        <!-- Placeholder meta content -->
+                        <span class="article-card__timestamp"><i></i>2 days ago</span>
+                        <span class="article-card__comments"><i></i>By PRAVDA News</span>
+                    </div>
+
+                    <div class="article-card__excerpt">
+                        <p><b>📌 On September 22, the "PRAVDA" news service reported the destruction (nuke) of the RU server.</b> Numerous channels with a rich history, built over many years, instantly turned into a single channel named "nothing". What led to this, how did the conflict develop, and what did it result in?</p>
+                        <h3>1️⃣ Background and First Disagreements</h3>
+                        <p>On August 11, the first serious disagreements arose. Yazov attempted to bring the player Wolfen back into the ranks of the RU clan. This sparked a dispute between him on one side, and Brul and Egypt on the other. In the end, Yazov was expelled from the party and subsequently left the clan itself. That same day, the clan's founder, Ilyas, entered into negotiations with Yazov to overthrow the server owner, Nemaloss, together with Corumin. Yazov rejected this offer.</p>
+                        <h3>2️⃣ Crisis Escalation</h3>
+                        <p>On August 20, due to Corumin's prolonged inactivity, the clan parliament impeached him. Following new elections, Soder emerged victorious. Against the backdrop of these events, Yazov returned to the clan. Internal clan conflicts continued to escalate. Throughout this period, the RU clan was in a state of stagnation, ranking only 8th to 12th places.</p>
+                        <h3>3️⃣ Climax: The Coup and Server Destruction</h3>
+                        <p>The new clan president, Soder, showed trust in Corumin and granted him administrative rights. Corumin cynically exploited this trust: under the cover of night, he deleted all channels, roles, and emojis. Everything the clan had built and developed for over two years was destroyed in a single night. After this, Corumin created a new clan and invited former RU members to it.</p>
+                        <h3>📢 CALL TO THE INTERNATIONAL COMMUNITY</h3>
+                        <p>Corumin committed a vile and destructive act of vandalism. We call for the isolation of Corumin, Ilyas, and LoveKissRespect from the community as individuals involved in the server's destruction. Currently, Corumin is attempting to return to the international community through other clans. <b>DO NOT LET HIM DO THIS!</b> The right to the clan and its history rightfully belongs to Nemaloss. The official server has already been restored and is commencing operations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <script>
