@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TAO News</title>
+    <title>TAO News - Home</title>
     <style>
         body {
             font-family: sans-serif;
             margin: 0;
-            /* Prevent text selection */
             user-select: none;
-            -webkit-user-select: none; /* For Safari */
-            -ms-user-select: none; /* For Internet Explorer/Edge */
+            -webkit-user-select: none;
+            -ms-user-select: none;
         }
         header {
             display: flex;
@@ -22,7 +21,6 @@
         }
         .logo img {
             max-height: 50px;
-            /* Prevent image dragging */
             pointer-events: none;
         }
         nav ul {
@@ -39,27 +37,30 @@
             color: #333;
             font-weight: bold;
         }
+        main {
+            padding: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="https://aqbpwadxaqjjenwtamfm.supabase.co/storage/v1/object/public/KOOL%20MEGS/image-removebg-preview%20(6).png" alt="TAO News Logo">
+            <a href="index.html" draggable="false"><img src="https://aqbpwadxaqjjenwtamfm.supabase.co/storage/v1/object/public/KOOL%20MEGS/image-removebg-preview%20(6).png" alt="TAO News Logo"></a>
         </div>
         <nav>
             <ul>
-                <li>Collab with us (Soon)</li>
+                <li><a href="collab.html" draggable="false">Collab with us</a></li>
                 <li><a href="https://tao-news-pricing.vercel.app/" draggable="false">Pricing</a></li>
             </ul>
         </nav>
     </header>
-    <main style="padding: 20px;">
+    <main>
         <h1>Welcome to TAO News</h1>
         <p>Your source for the latest news and information.</p>
     </main>
 
     <script>
-        // Prevent right-click context menu
         document.addEventListener('contextmenu', event => event.preventDefault());
     </script>
 </body>
