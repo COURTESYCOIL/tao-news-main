@@ -44,6 +44,11 @@
             flex-direction: column;
             align-items: center;
         }
+        /* New container for the iframe to control its size */
+        .iframe-container {
+            width: 100%;
+            max-width: 900px; /* Adjust this value as needed */
+        }
     </style>
 </head>
 <body>
@@ -60,7 +65,10 @@
     </header>
     <main>
         <h2>Collaboration Contract</h2>
-        <iframe title="Collaboration Contract" src="https://www.jotform.com/sign/252883762109060/invite/01k7pnn1ssf9a590cd12207c6a?signEmbed=1" style="height:600px; width: 375px; border: 0"></iframe>
+        <div class="iframe-container">
+            <!-- Updated width and height of the iframe -->
+            <iframe title="Collaboration Contract" src="https://www.jotform.com/sign/252883762109060/invite/01k7pnn1ssf9a590cd12207c6a?signEmbed=1" style="height:850px; width: 100%; border: 0;"></iframe>
+        </div>
     </main>
 
     <script>
